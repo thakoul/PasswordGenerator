@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+:root {
+  --notification-green: rgb(121, 185, 79);
+  --notification-red: rgb(185, 79, 79);
+  --crimson-red: rgb(198, 62, 47);
+  --crimson-red-tr: rgba(198, 62, 47, 0.2);
+  --grayish: rgb(212, 212, 212);
+  --shadow: rgba(0, 0, 0, 0.2);
+  --shadow-btn: rgb(0, 0, 0);
+  --gradient1st: rgb(233, 228, 240);
+  --gradient2nd: rgb(211, 204, 227);
+}
+
+main {
+  max-width: 26rem;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  gap: 0.5rem;
+}
+
+body {
+  background: linear-gradient(to right, var(--gradient1st), var(--gradient2nd));
+}
+
+h1 {
+  margin-top: 1rem;
+}
+
+#passlengthnumber {
+  height: 2.5rem;
+  width: 4rem;
+  font-size: 1rem;
+  border-radius: 0.313rem;
+  box-shadow: inset 0 1px 2px 0 var(--shadow);
+  border: 1px solid var(--grayish);
+  text-align: center;
+}
+
+#genpass {
+  border-radius: 1rem 1rem 0.2rem 0.2rem;
+  width: 100%;
+  height: 5rem;
+  font-size: 1.375rem;
+  margin-bottom: 0.625rem;
+  box-shadow: 0 2px 8px var(--shadow);
+  padding: 0.625rem;
+  border: none;
+}
+
+#genpass:focus-visible,
+#passlengthnumber:focus-visible {
+  outline: none;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: inherit;
+  padding: 0.5rem;
+  border-radius: 1.25rem;
+  border: 0;
+  background-color: var(--crimson-red);
+  color: white;
+  width: 7.5rem;
+  transition: all 200ms;
+}
+
+button svg {
+  margin-right: 0.3rem;
+}
+
+button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+button:active {
+  transform: translateY(-0.2rem);
+  box-shadow: var(--shadow-btn) 0 0 0.8rem;
+}
+
+button:focus-visible {
+  outline: 0;
+}
+
+/* CLASSES */
+
+.application-form {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-self: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 0.625rem;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.password-input-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.range-container label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.checkboxes-container div {
+  margin-bottom: 0.5rem;
+}
+
+.checkboxes-container div:last-child {
+  margin-bottom: 0;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* CHECKBOXES CSS */
+
+.checkbox-container input {
+  padding: 0;
+  height: initial;
+  width: initial;
+  margin-bottom: 0;
+  display: none;
+  cursor: pointer;
+}
+
+.checkbox-container label {
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox-container label:before {
+  content: "";
+  appearance: none;
+  border: solid 1px var(--crimson-red);
+  background: var(--crimson-red-tr);
+  border-radius: 2px;
+  padding: 12px;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.checkbox-container input:checked + label:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -2px;
+  left: 8px;
+  width: 6px;
+  height: 18px;
+  border: solid var(--crimson-red);
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+/* RANGE CSS */
+input[type="range"] {
+  appearance: none;
+  width: 6rem;
+}
+input[type="range"]:focus {
+  outline: none;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 0.5rem;
+  cursor: pointer;
+  background: var(--grayish);
+  border-radius: 0.313rem;
+}
+input[type="range"]::-webkit-slider-thumb {
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  background: var(--crimson-red);
+  cursor: pointer;
+  appearance: none;
+  margin-top: -0.25rem;
+}
+
+input[type="range"]::-moz-range-track {
+  height: 0.5rem;
+  cursor: pointer;
+  background: var(--grayish);
+  border-radius: 0.313rem;
+}
+input[type="range"]::-moz-range-thumb {
+  border: 0;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  background: var(--crimson-red);
+  cursor: pointer;
+}
+
+/* NOTIFICATION */
+
+.notification {
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  text-align: center;
+  opacity: 0;
+  transition: all 0.4s;
+}
+
+.notification-message-success {
+  background: var(--notification-green);
+  opacity: 1;
+  color: green;
+}
+
+.notification-message-failure {
+  background: var(--notification-red);
+  opacity: 1;
+  color: red;
+}
